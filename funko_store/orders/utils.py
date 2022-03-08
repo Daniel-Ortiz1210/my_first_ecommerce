@@ -4,7 +4,7 @@ from .models import Order
 
 def get_or_create_order(cart, request):
     user = request.user if request.user.is_authenticated else None
-    order = Order.objects.filter(cart=cart).first()
+    order = cart.order
 
     if cart.products is None:
         messages.info(request, 'No tienes una orden de compra actualmente, agrega productos a tu carrito para generar una.')
