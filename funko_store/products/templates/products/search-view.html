@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <h3>Detalles del producto</h3>
+    {% include 'products/snippets/search-bar.html' with q=q%}
+    <p>Resultados para: {{ q }} ({{ n }})</p>
+    <div class="row">   
+        {% for product in products %}
+            <div class="col-3 mt-4">
+                {% include 'products/snippets/product-card.html' %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

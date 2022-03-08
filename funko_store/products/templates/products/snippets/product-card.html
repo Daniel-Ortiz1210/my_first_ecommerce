@@ -1,0 +1,9 @@
+<!-- Tarjeta de producto, se muestra en index y al buscar un producto -->
+<div class="card h-100" style="width: 18rem;">
+    <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h4 class="card-title">{{ product.title }}</h4>
+        <p class="card-text">{{ product.description }}</p>
+        <a href="{% url 'product' product.slug %}" class="btn btn-primary">Ver más</a>
+    </div>
+</div>

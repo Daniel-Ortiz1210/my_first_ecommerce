@@ -1,0 +1,62 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "Daredevil - Netflix Series",
+        "description": "Ciego desde que era joven, Matt Murdock lucha contra la injusticia de día como abogado y por la noche como Daredevil en Nueva York.",
+        "price": "19.99",
+        "image": "products/dardevil-pop_3u9QpBg.jpg",
+        "slug": "funko-pop-daredevil-netflix-series",
+        "created_at": "2022-01-24T21:48:56.163Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "The Flash",
+        "description": "En esta serie del clásico superhéroe, un especialista forense vuelve de un coma y descubre que posee poderes que le permitirán enfrentar a quienes amenacen a su ciudad.",
+        "price": "12.00",
+        "image": "products/the-flash-netflix-series_3Vs1qIG.webp",
+        "slug": "funko-pop-the-flash-netflix",
+        "created_at": "2022-01-24T23:29:29.327Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Zoom - The Flash",
+        "description": "Hunter Zolomon, también conocido como Zoom, es un supervillano ficticio que aparece en los cómics publicados por DC Comics.",
+        "price": "25.00",
+        "image": "products/zoom-the-flash-netflix-series_d9ZBKEB.jpg",
+        "slug": "funko-pop-zoom-netflix-series",
+        "created_at": "2022-01-24T23:31:28.786Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "Flash Reverso",
+        "description": "Flash Reverso también conocido como Eobard Thawne. Es un nombre utilizado por los supervillanos ficticios en los cómics publicados por la editorial DC. Algunos son archienemigos de diversos héroes velocistas que han usado el nombre Flash a lo largo de los años en diferentes épocas de cómics.",
+        "price": "14.00",
+        "image": "products/flash-reverso-the-flash_1SKVocs.jpg",
+        "slug": "funko-pop-flash-reverso",
+        "created_at": "2022-01-24T23:44:52.255Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "title": "Capitán América",
+        "description": "El Capitán América, cuyo nombre real es Steven \"Steve\" Grant Rogers, es un superhéroe ficticio que aparece en los cómics estadounidenses publicados por Marvel Comics.",
+        "price": "25.00",
+        "image": "products/captain-america-end-game_ut6CkvP.webp",
+        "slug": "funko-pop-capitan-america-end-game",
+        "created_at": "2022-01-24T23:47:28.603Z"
+    }
+}
+]

@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <h1>Detalles del producto</h1>
+    <div>
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="Imagen de {{ product.title }}" width="250" height="250">
+        {% endif %}
+    </div>
+    <p>{{ product.title }}</p>
+    <P>{{ product.description }}</P>
+    <p>Precio: ${{ product.price }}</p>
+    {% include 'carts/snippets/add-to-cart.html' %}
+{% endblock content %}
