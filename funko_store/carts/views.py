@@ -4,8 +4,10 @@ from .models import Cart
 from .utils import get_or_create_cart
 from products.models import Product
 from .models import CartProducts
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required
 def cart(request):
     cart = get_or_create_cart(request)
     subtotal = cart.subtotal
@@ -20,7 +22,7 @@ def cart(request):
         'n_products': n_products,
         'product_quantities': product_quantities    
     })  
-
+@login_required
 def add_to_cart(request):
     cart = get_or_create_cart(request)
     product = get_object_or_404(Product, pk=request.POST.get('product_id'))
@@ -42,7 +44,8 @@ def add_to_cart(request):
         'product': product,
         'message': message
     })
-
+    
+@login_required
 def remove_from_cart(request):
     cart = get_or_create_cart(request)
     product = get_object_or_404(Product, pk=request.POST.get('product_id'))
