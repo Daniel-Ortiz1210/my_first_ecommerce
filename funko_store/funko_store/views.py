@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout # con authenticate verificamos si el usuario existe en DB y con login iniciamos sesion con el usuario
 from django.contrib import messages
@@ -26,6 +26,7 @@ def login_view(request):
         return redirect('index')
 
     form = LoginForm(request.POST or None)
+    
     if request.method == 'POST' and form.is_valid():
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password')
@@ -33,7 +34,11 @@ def login_view(request):
         if user is not None:
             login(request, user)
             messages.success(request, f'Bienvenido, {user.username}')
-            return redirect('index')
+            next = request.GET.get('next')
+            if next:
+                return redirect(next)
+            else:
+                return redirect('index')
         else:
             messages.error(request, 'No existe un usuario registrado con este username')
             return redirect('login')

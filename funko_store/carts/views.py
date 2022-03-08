@@ -7,7 +7,7 @@ from .models import CartProducts
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-@login_required
+@login_required(redirect_field_name='next', login_url='/login')
 def cart(request):
     cart = get_or_create_cart(request)
     subtotal = cart.subtotal
@@ -22,7 +22,9 @@ def cart(request):
         'n_products': n_products,
         'product_quantities': product_quantities    
     })  
-@login_required
+
+
+@login_required(redirect_field_name='next', login_url='/login')
 def add_to_cart(request):
     cart = get_or_create_cart(request)
     product = get_object_or_404(Product, pk=request.POST.get('product_id'))
@@ -45,7 +47,8 @@ def add_to_cart(request):
         'message': message
     })
     
-@login_required
+    
+@login_required(redirect_field_name='next', login_url='/login')
 def remove_from_cart(request):
     cart = get_or_create_cart(request)
     product = get_object_or_404(Product, pk=request.POST.get('product_id'))

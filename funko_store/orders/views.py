@@ -4,7 +4,7 @@ from carts.utils import get_or_create_cart
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required
+@login_required(redirect_field_name='next', login_url='/login')
 def order(request):
     cart = get_or_create_cart(request)
     order = get_or_create_order(cart, request)
