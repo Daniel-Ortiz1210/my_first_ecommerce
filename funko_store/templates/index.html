@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="col">
+        <div class="text-center">
+            <h1>Nuevos lanzamientos</h1>
+        </div>
+        {% include 'products/snippets/search-bar.html' %}
+        <!-- Productos -->
+        <div class="row">
+            {% for product in products %}
+                <div class="col-3 mt-4">
+                    {% include 'products/snippets/product-card.html' %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

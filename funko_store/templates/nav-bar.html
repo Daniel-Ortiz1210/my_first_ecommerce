@@ -1,0 +1,67 @@
+<!-- Almacenamos las rutas como variables -->
+{% url 'login' as login %}
+{% url 'register' as register %}
+{% url 'cart' as cart %}
+
+{% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="navbar-header">
+            <a href="{% url 'index' %}" class="navbar-brand">Pop Land</a>
+
+
+            <button type="button" name="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navb">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div id="navb" class="collapse navbar-collapse flex-row-reverse">
+            <ul class="nav navbar-nav ml-right">
+                <li class="navbar-item">
+                    <a href="{{ cart }}" class="nav-link {% if request.path == cart %}active{% endif %}">
+                        <i class="fas fa-shopping-cart"></i>
+                        Mi carrito
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="{% url 'logout' %}" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% else %}
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="navbar-header">
+            <a href="{% url 'index' %}" class="navbar-brand">Pop Land</a>
+            <button type="button" name="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navb">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div id="navb" class="collapse navbar-collapse flex-row-reverse">
+            <ul class="nav navbar-nav ml-right">
+                <li class="navbar-item">
+                    <a href="{{ cart }}" class="nav-link {% if request.path == cart %}active{% endif %}">
+                        <i class="fas fa-shopping-cart"></i>
+                        Mi carrito
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="{{ login }}" class="nav-link {% if request.path == login %}active{% endif %}">
+                        <i class="fas fa-user"></i>
+                        Login
+                    </a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="{{ register }}" class="nav-link {% if request.path == register %}active{% endif %}">
+                        <i class="fas fa-user-plus"></i>
+                        Registro
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endif %}

@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+
+
+{% block content %}
+
+    <!-- Formulario de registro -->
+    <h1>Crea una cuenta</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field.label_tag }}
+            <div>
+                {{ field }}
+            </div>
+            <div>
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ field.errors }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}                    
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Crear cuenta</button>        
+    </form>
+
+{% endblock content %}
+
