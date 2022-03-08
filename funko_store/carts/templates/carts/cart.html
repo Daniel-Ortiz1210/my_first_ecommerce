@@ -1,0 +1,64 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    
+    {% if cart.products.exists %}
+        <h2>Carrito de compras</h2>
+        <div class="mt-2">
+            <div class="row">
+                <div class="col-sm-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for product in cart.cartproducts_set.all %}
+                                <tr>
+                                    <th>{{ forloop.counter }}</th>
+                                    <th>
+                                        {% if product.product.image %}
+                                            <img src="{{ product.product.image.url }}" alt="Imagen del producto" width="120" height="100">
+                                        {% endif %}
+                                    </th>
+                                    <th>
+                                        <a href="{% url 'product' product.product.slug %}">{{ product.product.title }}</a>
+                                    </th>
+                                    <th>{{ product.quantity }}</th>
+                                    <th>
+                                        <span class="font-weight-bold text-danger">{{ product.product.price }}</span>
+                                    </th>
+                                    <th>
+                                        {% include 'carts/snippets/remove-from-cart.html' %}
+                                    </th>
+                                </tr>
+                            {% endfor %}
+                    </table>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Tu orden de compra</h5>
+                            <p class="card-text"><strong>Subtotal ({{ n_products }}): ${{ subtotal }}</strong></p>
+                            <p class="card-text"><strong>Total: ${{ total }}</strong></p>
+                            <a href="{% url 'order' %}" class="btn btn-warning">Proceder al pago</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h1>Tu carrito de compras está vacío</h1>
+        <button type="button" class="btn btn-info"><a href="{% url 'index' %}" style="text-decoration: none; color: black;">Seguir comprando</a></button>
+    {% endif %}
+    
+{% endblock content %}
+
+
+

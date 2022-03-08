@@ -1,0 +1,15 @@
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Ver más
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="{% url 'product' product.product.slug %}">Actualizar cantidad</a></li>
+        <li>
+            <form action="{% url 'remove' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ product.product.id }}">
+                <button type="submit" class="btn btn-danger">Eliminar del carrito</button>
+            </form>
+        </li>
+    </ul>
+</div> 

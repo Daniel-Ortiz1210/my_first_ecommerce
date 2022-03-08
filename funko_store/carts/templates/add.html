@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <!-- Alerta de exito  -->
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Buena elección!</strong> {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <!-- Producto agregado -->
+    <div class="col-3">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="Imagen del producto" width="200" height="200">
+        {% endif %}
+        <p>{{ product.title }}</p>
+        <button type="button" class="btn btn-dark"><a href="{% url 'product' product.slug %}" style="text-decoration: none; color: white;">Ver producto</a></button>
+        <button type="button" class="btn btn-info"><a href="{% url 'cart' %}" style="text-decoration: none; color: white;">Ver carrito de compras</a></button>    </div>
+{% endblock content %}
+
