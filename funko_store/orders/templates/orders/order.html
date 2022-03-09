@@ -1,6 +1,9 @@
 {% extends '_base.html' %}
 
+
+
 {% block content %}
+    {% include 'orders/breadcrumb.html' %}
     <div>
         <h1>Resumen del pedido</h1>
     </div>
@@ -41,7 +44,7 @@
                                             <td>${{ cart.total }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Envío:</td>
+                                            <td>Envío: HOLA</td>
                                             <td>${{ order.shipping }}</td>
                                         </tr>
                                     </tbody>

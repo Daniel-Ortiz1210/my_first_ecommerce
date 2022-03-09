@@ -63,7 +63,8 @@ TEMPLATES = [
         'DIRS': [
             'templates', #especificar el nombre de la carpeta donde almacenamos nuestros templates
             os.path.join(BASE_DIR, 'products', 'templates'),# Asi encontramos el template folder  dentro de la app productos
-            os.path.join(BASE_DIR, 'carts', 'templates'), 
+            os.path.join(BASE_DIR, 'carts', 'templates'),
+            os.path.join(BASE_DIR, 'orders', 'templates')
             ],
         'APP_DIRS': True,
         'OPTIONS': {

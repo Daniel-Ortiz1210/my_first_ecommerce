@@ -27,10 +27,10 @@ class Cart(models.Model):
         self.update_subtotal()
         self.update_total()
 
-        order = self.order_set.first()
-        if order:
-            order.update_total()
-            
+        
+        if self.order:
+            self.order.update_total()
+
     
     def update_subtotal(self):
         self.subtotal = sum(
@@ -43,6 +43,9 @@ class Cart(models.Model):
         self.total = self.subtotal + (self.subtotal * decimal.Decimal(Cart.FEE) )
         self.save()
 
+    @property
+    def order(self):
+        return self.order_set.first()
 # -------------------------------------------------------------------------------------------
 # IMPLEMENTACIÓN DEL MODELO
 # Se debe primero eliminar las migraciones y la db, ya es un cambio grande, hacer respaldo de información
